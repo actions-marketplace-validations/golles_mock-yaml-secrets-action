@@ -3,14 +3,14 @@ import {
   appendSecret,
   getFilesWithExtension,
   findSecretsInFile
-} from './utils/files'
-import {readConfig} from './utils/config'
-import {applyRules} from './utils/rules'
+} from './utils/files.js'
+import { readConfig } from './utils/config.js'
+import { applyRules } from './utils/rules.js'
 
 /**
  * Action run function.
  */
-async function run(): Promise<void> {
+export async function run(): Promise<void> {
   try {
     core.debug(
       `Starting ${process.env.npm_package_name} version ${process.env.npm_package_version}`
@@ -44,8 +44,3 @@ async function run(): Promise<void> {
     if (error instanceof Error) core.setFailed(error.message)
   }
 }
-
-/**
- * Main entry point.
- */
-run()
